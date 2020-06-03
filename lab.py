@@ -35,3 +35,9 @@ print(dczip)
 
 # Close the database
 conn.close()
+
+# Inspect tables of a new database
+con = sqlite3.connect('./chinook.db')
+cursor = con.cursor()
+cursor.execute("SELECT name FROM sqlite_master WHERE type='table';")
+print(cursor.fetchall())
